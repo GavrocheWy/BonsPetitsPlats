@@ -1,0 +1,15 @@
+$breakpoints: (
+  mobile: 768px,
+  tablet: 900px,
+  pc-x-small: 1370px,
+  pc-small: 1600px,
+  pc-classic: 1920px,
+  pc-large: 2560px,
+  pc-x-large: 3200px,
+);
+
+@mixin mobile-only {
+    @media screen and (max-width: map-get($breakpoints, mobile)) {
+        @content;
+    }
+}

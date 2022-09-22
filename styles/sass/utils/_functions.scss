@@ -1,0 +1,15 @@
+// Calcul des dimensions EM / REM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@use "sass:math";
+
+@function trim-unit($value) {
+    @return math.div($value, ($value * 0 + 1));
+}
+
+@function rem-calc($value) {
+    @return math.div($value, trim-unit($normal-text-size)) * 1rem;
+}
+
+@function em-calc($value) {
+    @return math.div($value, trim-unit($normal-text-size)) * 1em;
+}

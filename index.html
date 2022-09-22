@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Les bons petits plats</title>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="main-header__image-frame">
+            <img class="main-header__image-frame--img" src="" alt="">
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <form class="main-content__search" action="">
+            <fieldset>
+                <label for="recipe-search">Rechercher une recette</label>
+                <input type="search" id="recipe-search" placeholder="Rechercher une recette">
+            </fieldset>
+            <fieldset>
+                <select name="" id="">
+                    <option value="">Ingrédients</option>
+                </select>
+                <select name="" id="">
+                    <option value="">Appareils</option>
+                </select>
+                <select name="" id="">
+                    <option value="">Ustensiles</option>
+                </select>
+            </fieldset>
+        </form>
+
+        <section class="main-content__display"></section>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <!-- → Factories -->
+    <script src="./scripts/factories/recipe.js" defer></script>
+    <!-- → Variables -->
+    <script src="./scripts/variables/currentlyDisplayedFilters.js" defer></script>
+    <script src="./scripts/variables/currentlyDisplayedRecipes.js" defer></script>
+    <!-- → Utils -->
+    <script src="./scripts/utils/displayRecipes.js" defer></script>
+    <script src="./scripts/utils/displayIngredients.js" defer></script>
+    <script src="./scripts/utils/displayAppliances.js" defer></script>
+    <script src="./scripts/utils/displayUstensils.js" defer></script>
+    <!-- → Render -->
+    <script src="./datas/recipes.js" defer></script>
+    <script src="./scripts/app.js" defer></script>
+    <!-- // SCRIPTS -->
+
+</body>
+
+</html>

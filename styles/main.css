@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.displayed-recipe {
+  background-color: lightblue;
+}
+
+.main-content__display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.7777777778em;
+}
+
+/*# sourceMappingURL=main.css.map */
