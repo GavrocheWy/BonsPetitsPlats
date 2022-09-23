@@ -8,22 +8,16 @@ function getAllUniquesAppliances() {
 
         const thisFormatedAppliance = recipe.appliance.toLowerCase().replace('.', '')
 
-        const isThisApplianceAlreadyInArray = currentlyDisplayedAppliances.find(appliance => appliance === thisFormatedAppliance)
+        const isThisApplianceAlreadyInArray = allAppliances.find(appliance => appliance === thisFormatedAppliance)
 
         // Rechercher l'appareil dans le tableau
 
         if (!isThisApplianceAlreadyInArray) {
-            currentlyDisplayedAppliances.push(thisFormatedAppliance)
+            allAppliances.push(thisFormatedAppliance)
         }
-        
+
     });
 
-    console.log('Voici le tableau des appareils :', currentlyDisplayedAppliances)
+    currentlyDisplayedAppliances = allAppliances
 
 }
-
-// function displayAppliancesBySelectors() {
-
-
-
-// }

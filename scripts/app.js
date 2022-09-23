@@ -1,5 +1,6 @@
 function init() {
     // Fonctions d'initialisation (au lancement de la page)
+    getAllRecipes()
 
     // Faire apparaitre toutes les recettes
     displayRecipes()
@@ -9,7 +10,11 @@ function init() {
     getAllUniquesIngredients()
     getAllUniquesUstensils()
 
-    console.log('Voici le tableau des recettes actuellement affichées :', currentlyDisplayedRecipes)
+    // Afficher les tags
+    displayAppliances()
+    displayIngredients()
+    displayUstensils()
+
 }
 
 init()

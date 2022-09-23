@@ -12,30 +12,17 @@ function getAllUniquesIngredients() {
 
             const formatedIngredientName = ingredient.ingredient.toLowerCase().replace('.', '')
 
-            const isThisIngredientAlreadyInArray = currentlyDisplayedIngredients.find(ingredient => ingredient === formatedIngredientName)
+            const isThisIngredientAlreadyInArray = allIngredients.find(ingredient => ingredient === formatedIngredientName)
 
             // Rechercher l'ingredient dans le tableau
 
             if (!isThisIngredientAlreadyInArray) {
-                currentlyDisplayedIngredients.push(formatedIngredientName)
+                allIngredients.push(formatedIngredientName)
             }
 
         });
 
     });
 
-    console.log('Voici le tableau des ingrédients :', currentlyDisplayedIngredients)
-
-}
-
-function updateIngredients() {
-
-    function getParamsByRecipesDisplayed() {
-
-    }
-
-    function getParamsByTags() {
-        
-    }
-
+    currentlyDisplayedIngredients = allIngredients
 }

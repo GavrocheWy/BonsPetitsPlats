@@ -12,18 +12,18 @@ function getAllUniquesUstensils() {
 
             const formatedUstensilName = ustensils.toLowerCase().replace('.', '')
 
-            const isThisUstensilAlreadyInArray = currentlyDisplayedUstensils.find(ustensil => ustensil === formatedUstensilName)
+            const isThisUstensilAlreadyInArray = allUstensils.find(ustensil => ustensil === formatedUstensilName)
 
             // Rechercher l'ingredient dans le tableau
 
             if (!isThisUstensilAlreadyInArray) {
-                currentlyDisplayedUstensils.push(formatedUstensilName)
+                allUstensils.push(formatedUstensilName)
             }
 
         });
 
     });
 
-    console.log('Voici le tableau des ustensiles :', currentlyDisplayedUstensils)
+    currentlyDisplayedUstensils = allUstensils
 
 }

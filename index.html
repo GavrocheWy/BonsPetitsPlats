@@ -25,17 +25,26 @@
                 <label for="recipe-search">Rechercher une recette</label>
                 <input type="search" id="recipe-search" placeholder="Rechercher une recette">
             </fieldset>
-            <fieldset>
-                <select name="" id="">
-                    <option value="">Ingrédients</option>
-                </select>
-                <select name="" id="">
-                    <option value="">Appareils</option>
-                </select>
-                <select name="" id="">
-                    <option value="">Ustensiles</option>
-                </select>
-            </fieldset>
+
+            <div class="main-content__search-current-tags"></div>
+
+            <div class="main-content__search-filters">
+
+                <fieldset>
+                    <input type="text" id="ingredients-field" name="ingredients" placeholder="Ingrédients">
+                    <div class="main-content__search-filters--suggestions" id="ingredients-suggestions"></div>
+                </fieldset>
+
+                <fieldset>
+                    <input type="text" id="appliances-field" name="appliances" placeholder="Appareils">
+                    <div class="main-content__search-filters--suggestions" id="appliances-suggestions"></div>
+                </fieldset>
+
+                <fieldset>
+                    <input type="text" id="ustensils-field" name="ustensils" placeholder="Ustensiles">
+                    <div class="main-content__search-filters--suggestions" id="ustensils-suggestions"></div>
+                </fieldset>
+            </div>
         </form>
 
         <section class="main-content__display"></section>
@@ -43,19 +52,51 @@
     </main>
 
     <!-- SCRIPTS -->
+
+    <!-- Recipes -->
+    <script src="./datas/recipes.js" defer></script>
+
     <!-- → Factories -->
     <script src="./scripts/factories/recipe.js" defer></script>
-    <!-- → Variables -->
-    <script src="./scripts/variables/currentlyDisplayedFilters.js" defer></script>
-    <script src="./scripts/variables/currentlyDisplayedRecipes.js" defer></script>
+
+    <!-- → Arrays -->
+    <script src="./scripts/arrays/allRecipes.js" defer></script>
+    <script src="./scripts/arrays/allFiltersPossibility.js" defer></script>
+    <script src="./scripts/arrays/currentlyDisplayedFilters.js" defer></script>
+    <script src="./scripts/arrays/currentlyDisplayedRecipes.js" defer></script>
+    <script src="./scripts/arrays/displayedTagsParams.js" defer></script>
+
+    <!-- → Events -->
+
+    <script src="./scripts/events/updateTagWhenTyping.js" defer></script>
+
     <!-- → Utils -->
-    <script src="./scripts/utils/displayRecipes.js" defer></script>
-    <script src="./scripts/utils/displayIngredients.js" defer></script>
-    <script src="./scripts/utils/displayAppliances.js" defer></script>
-    <script src="./scripts/utils/displayUstensils.js" defer></script>
+
+    <!-- Get all tags and recipes -->
+    
+    <script src="./scripts/utils/static/getAllRecipes.js" defer></script>
+    <script src="./scripts/utils/static/getAllUniquesAppliances.js" defer></script>
+    <script src="./scripts/utils/static/getAllUniquesUstensils.js" defer></script>
+    <script src="./scripts/utils/static/getAllUniquesIngredients.js" defer></script>
+
+    <!-- Update tags and recipes -->
+
+    <script src="./scripts/utils/update/updateAppliances.js"></script>
+    <script src="./scripts/utils/update/updateIngredients.js"></script>
+    <script src="./scripts/utils/update/upadateUstensils.js"></script>
+
+    <!-- Display tags and recipes -->
+
+    <script src="./scripts/utils/display/displayRecipes.js" defer></script>
+    <script src="./scripts/utils/display/displayIngredients.js" defer></script>
+    <script src="./scripts/utils/display/displayAppliances.js" defer></script>
+    <script src="./scripts/utils/display/displayUstensils.js" defer></script>
+    <script src="./scripts/utils/tags/checkIfTagIsAlreadyChecked.js" defer></script>
+    <script src="./scripts/utils/tags/addTagToTaglist.js" defer></script>
+
     <!-- → Render -->
-    <script src="./datas/recipes.js" defer></script>
     <script src="./scripts/app.js" defer></script>
+
     <!-- // SCRIPTS -->
 
 </body>
