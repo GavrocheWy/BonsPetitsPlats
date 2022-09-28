@@ -2,6 +2,6 @@
 
 const displayedTagsParams = {
     ingredients: [],
-    appliances: [],
+    appliance: [],
     ustensils: [],
 }

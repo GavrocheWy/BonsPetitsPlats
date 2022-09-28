@@ -28,7 +28,7 @@ function displayUstensils() {
     
             ustensilsSection.appendChild(suggestionButton)
 
-            // Tag Button configuration
+            // Tag Button configurations
     
             suggestionButton.addEventListener('click', function (e) {
                 e.preventDefault()
@@ -38,6 +38,9 @@ function displayUstensils() {
                 ustensilsField.value = ''
                 addTagToTagList(btnName, btnType)
                 suggestionButton.remove()
+
+                currentlyDisplayedUstensils = allUstensils
+                displayUstensils()
             })
 
         }

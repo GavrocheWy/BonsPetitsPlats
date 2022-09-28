@@ -8,14 +8,31 @@ function addTagToTagList(tag, type) {
     tagsSection.appendChild(tagButton)
 
     displayedTagsParams[type].push(tag)
+    displayRecipes()
 
-    tagButton.addEventListener('click', function(e) {
+    // Application on selected tag clic
+
+    tagButton.addEventListener('click', function (e) {
         e.preventDefault
         const valueInDisplayedTagsParams = displayedTagsParams[type].indexOf(tag)
+
         if (valueInDisplayedTagsParams > -1) {
             displayedTagsParams[type].splice(valueInDisplayedTagsParams, 1)
+
+            switch (type) {
+                case "ustensils":displayUstensils()
+                    break;
+                case "ingredients": displayIngredients()
+                    break;
+                case "appliance": displayAppliances()
+            }
+
         }
+        
+        displayRecipes()
         tagButton.remove()
     })
+
+    // Application on selected tag clic
 
 }
