@@ -6,11 +6,43 @@ const displayRecipes = () => {
 
     // CHECK DES TAGS
 
-    if (!Object.values(displayedTagsParams).every((array) => array.length === 0)) {
+    if ((!Object.values(displayedTagsParams).every((array) => array.length === 0)) || (currentSearch !== null)) {
 
         updatedRecipes = []
 
         allRecipes.forEach(recipe => {
+
+            // Récupération des noms des ingrédients de la recette
+
+            let allIngredientsNamesOfThisRecipe = []
+
+            recipe.ingredients.forEach(ingredient => {
+
+                allIngredientsNamesOfThisRecipe.push(ingredient.ingredient.toLowerCase())
+
+            });
+
+            // Check de la recherche
+
+            function checkForSearchQuery() {
+
+                if (currentSearch !== null) {
+
+                    if (recipe.name.toLowerCase().includes(currentSearch) || recipe.description.includes(currentSearch) || allIngredientsNamesOfThisRecipe.includes(currentSearch)) 
+                    
+                    {
+
+                        return true
+
+                    }
+
+                } else {
+
+                    return true
+
+                }
+
+            }
 
             // Check des ustensils
 
@@ -66,14 +98,6 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.ingredients.length > 0) {
 
-                    let allIngredientsNamesOfThisRecipe = []
-
-                    recipe.ingredients.forEach(ingredient => {
-
-                        allIngredientsNamesOfThisRecipe.push(ingredient.ingredient.toLowerCase())
-
-                    });
-
                     if (displayedTagsParams.ingredients.every(ingredient => allIngredientsNamesOfThisRecipe.includes(ingredient))) {
 
                         return true
@@ -96,7 +120,7 @@ const displayRecipes = () => {
 
             // Check final de tous les filtres
 
-            checkForUstensil() && checkForAppliance() && checkForIngredients() ? updatedRecipes.push(recipe) : null;
+            checkForSearchQuery() && checkForUstensil() && checkForAppliance() && checkForIngredients() ? updatedRecipes.push(recipe) : null;
 
         });
 

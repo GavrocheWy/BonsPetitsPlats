@@ -23,7 +23,7 @@
         <form class="main-content__search" action="">
             <fieldset>
                 <label for="recipe-search">Rechercher une recette</label>
-                <input type="search" id="recipe-search" placeholder="Rechercher une recette">
+                <input id="recipe-search-field" type="search" id="recipe-search" placeholder="Rechercher une recette">
             </fieldset>
 
             <div class="main-content__search-current-tags"></div>
@@ -93,6 +93,10 @@
     <script src="./scripts/utils/display/displayUstensils.js" defer></script>
     <script src="./scripts/utils/tags/checkIfTagIsAlreadyChecked.js" defer></script>
     <script src="./scripts/utils/tags/addTagToTaglist.js" defer></script>
+
+    <!-- Searchbar -->
+
+    <script src="./scripts//utils/searchbar/getRecipesWhenUserSearchSomething.js"></script>
 
     <!-- → Render -->
     <script src="./scripts/app.js" defer></script>
