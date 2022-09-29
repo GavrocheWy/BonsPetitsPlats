@@ -11,40 +11,31 @@ function displayUstensils() {
 
     ustensilsSection.innerHTML = ''
 
-    // NO RECIPE FILTERED
-
     currentlyDisplayedUstensils.forEach(ustensil => {
 
-        // Verify if tag is already checked
+        const suggestionButton = document.createElement('button')
 
-        if (!checkIfTagIsAlreadyChecked(ustensil, 'ustensils')) {
+        suggestionButton.textContent = ustensil
+        suggestionButton.setAttribute('id', ustensil)
+        suggestionButton.setAttribute('data-type', 'ustensils')
+        suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
 
-            const suggestionButton = document.createElement('button')
+        ustensilsSection.appendChild(suggestionButton)
 
-            suggestionButton.textContent = ustensil
-            suggestionButton.setAttribute('id', ustensil)
-            suggestionButton.setAttribute('data-type', 'ustensils')
-            suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
-    
-            ustensilsSection.appendChild(suggestionButton)
+        // Tag Button configurations
 
-            // Tag Button configurations
-    
-            suggestionButton.addEventListener('click', function (e) {
-                e.preventDefault()
-                const btnName = suggestionButton.getAttribute('id')
-                const btnType = suggestionButton.getAttribute('data-type')
+        suggestionButton.addEventListener('click', function (e) {
 
-                ustensilsField.value = ''
-                addTagToTagList(btnName, btnType)
-                suggestionButton.remove()
+            e.preventDefault()
 
-                currentlyDisplayedUstensils = allUstensils
-                displayUstensils()
-            })
+            const btnName = suggestionButton.getAttribute('id')
+            const btnType = suggestionButton.getAttribute('data-type')
 
-        }
-        
+            ustensilsField.value = ''
+
+            addTagToTagList(btnName, btnType)
+        })
+
     });
 
 }

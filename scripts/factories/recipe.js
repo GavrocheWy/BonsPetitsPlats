@@ -15,12 +15,14 @@ function recipeFactory(recipe) {
         const articleContent = document.createElement('section')
         const ingredientsList = document.createElement('ul')
         const description = document.createElement('p')
+        const utils = document.createElement('p')
 
         // Text content
 
         articleTitle.textContent = recipe.name
         durationText.textContent = recipe.time + ' ' + 'min'
         description.textContent = recipe.description
+        utils.textContent = `${appliance} | ${ustensils}`
 
         // Ingrédients
 
@@ -104,6 +106,7 @@ function recipeFactory(recipe) {
 
         articleContent.appendChild(ingredientsList)
         articleContent.appendChild(description)
+        articleContent.appendChild(utils)
 
         // Render
 

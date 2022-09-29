@@ -1,99 +1,122 @@
 // Display all recipes
 
-const updatedRecipes = []
-
 const recipesSection = document.querySelector('.main-content__display')
 
 const displayRecipes = () => {
-
-    console.log(' ')
-    console.log('- - - REFRESH - - -')
-    console.log(displayedTagsParams)
 
     // CHECK DES TAGS
 
     if (!Object.values(displayedTagsParams).every((array) => array.length === 0)) {
 
-        console.log('Conclusion : Il y a des tags')
+        updatedRecipes = []
 
-        function checkAndApplySpecificTagType(type) {
+        allRecipes.forEach(recipe => {
 
-            // CHECK SI IL Y A UN TAG SPECIFIQUE
+            // Check des ustensils
 
-            if (displayedTagsParams[type].length > 0) {
+            function checkForUstensil() {
 
-                displayedTagsParams[type].forEach(tag => {
+                if (displayedTagsParams.ustensils.length > 0) {
 
-                    if (updatedRecipes.length === 0) {
+                    if (displayedTagsParams.ustensils.every(ustensil => recipe.ustensils.includes(ustensil))) {
 
-                        allRecipes.forEach(recipe => {
+                        return true
 
-                            if (typeof recipe[type] === 'string') {
-                                
-                                if (recipe[type].toLowerCase() === tag) {
+                    } else {
 
-                                    updatedRecipes.push(recipe)
-
-                                    console.log('Recettes actualisées :', updatedRecipes)
-
-                                }
-        
-                            }
-        
-                        });
-
-                    } else if (updatedRecipes.length > 0) {
-
-                        updatedRecipes.forEach(recipe => {
-
-                            if (typeof recipe[type] === 'string') {
-                                
-                                if (recipe[type].toLowerCase() === tag) {
-
-                                    updatedRecipes.push(recipe)
-
-                                    console.log('Recettes actualisées :', updatedRecipes)
-
-                                }
-        
-                            }
-
-                        })
+                        return false
 
                     }
-                    
-                });
 
-            } else {
+                } else {
 
-                console.log(`- Le tag de type ${type} est vide`)
+                    return true
+
+                }
 
             }
 
-        }
+            // Check des appareils
 
-        checkAndApplySpecificTagType('ingredients')
-        checkAndApplySpecificTagType('appliance')
-        checkAndApplySpecificTagType('ustensils')
+            function checkForAppliance() {
+
+                if (displayedTagsParams.appliance.length > 0) {
+
+                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase().includes(appliance))) {
+
+                        return true
+
+                    } else {
+
+                        return false
+
+                    }
+
+                } else {
+
+                    return true
+
+                }
+
+            }
+
+            // Check des ingredients
+
+            function checkForIngredients() {
+
+                if (displayedTagsParams.ingredients.length > 0) {
+
+                    let allIngredientsNamesOfThisRecipe = []
+
+                    recipe.ingredients.forEach(ingredient => {
+
+                        allIngredientsNamesOfThisRecipe.push(ingredient.ingredient.toLowerCase())
+
+                    });
+
+                    if (displayedTagsParams.ingredients.every(ingredient => allIngredientsNamesOfThisRecipe.includes(ingredient))) {
+
+                        return true
+
+                    } else {
+
+                        return false
+
+                    }
+
+                }
+
+                else {
+
+                    return true
+
+                }
+
+            }
+
+            // Check final de tous les filtres
+
+            checkForUstensil() && checkForAppliance() && checkForIngredients() ? updatedRecipes.push(recipe) : null;
+
+        });
 
         currentlyDisplayedRecipes = updatedRecipes
-        
+
         generateRecipesDOM()
 
-        console.log('Recettes générées avec filtre(s)')
-
+        updateFilters()
 
     } else {
 
-        // AUCUN TAG + AUCUNE RECHERCHE
+        // AUCUN TAG
 
-        console.log('Conclusion : Il n\'y a aucun tag')
+        updatedRecipes = []
 
         currentlyDisplayedRecipes = allRecipes
 
         generateRecipesDOM()
 
-        console.log('Recettes générées sans filtre')
+        updateFilters()
 
     }
 
@@ -112,4 +135,12 @@ function generateRecipesDOM() {
         recipesSection.appendChild(recipeDOM);
 
     });
+}
+
+function updateFilters() {
+
+    updateAppliances()
+    updateUstensils()
+    updateIngredients()
+
 }

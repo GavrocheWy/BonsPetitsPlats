@@ -3,3 +3,23 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: em-calc(50);
 }
+
+.main-content__search-filters--suggestions-btn {
+
+    border: 2px solid rgb(230, 215, 173);
+    color: rgb(53, 44, 21);
+    background-color: rgb(246, 248, 223);
+    margin: 3px;
+    padding: 2px;
+    cursor: pointer;
+    transform: scale(1);
+    opacity: 0.5;
+    transition: all 0.25s ease;
+
+    &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+        transition: all 0.25s ease;
+    }
+
+}

@@ -4,7 +4,7 @@ function getAllUniquesAppliances() {
 
     // Récupération initiale de tous les appareils
 
-    currentlyDisplayedRecipes.forEach(recipe => {
+    allRecipes.forEach(recipe => {
 
         const thisFormatedAppliance = recipe.appliance.toLowerCase().replace('.', '')
 

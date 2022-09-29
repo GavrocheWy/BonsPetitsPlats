@@ -11,39 +11,30 @@ function displayIngredients() {
 
     ingredientsSection.innerHTML = ''
 
-    // NO RECIPE FILTERED
+    currentlyDisplayedIngredients.forEach(ingredient => {
 
-    currentlyDisplayedIngredients.forEach(appliance => {
+        const suggestionButton = document.createElement('button')
 
-        // Verify if tag is already checked
+        suggestionButton.textContent = ingredient
+        suggestionButton.setAttribute('id', ingredient)
+        suggestionButton.setAttribute('data-type', 'ingredients')
+        suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
 
-        if (!checkIfTagIsAlreadyChecked(appliance, 'ingredients')) {
+        ingredientsSection.appendChild(suggestionButton)
 
-            const suggestionButton = document.createElement('button')
+        // Tag Button configurations
 
-            suggestionButton.textContent = appliance
-            suggestionButton.setAttribute('id', appliance)
-            suggestionButton.setAttribute('data-type', 'ingredients')
-            suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
+        suggestionButton.addEventListener('click', function (e) {
 
-            ingredientsSection.appendChild(suggestionButton)
+            e.preventDefault()
+            
+            const btnName = suggestionButton.getAttribute('id')
+            const btnType = suggestionButton.getAttribute('data-type')
 
-            // Tag Button configurations
+            ingredientsField.value = ''
 
-            suggestionButton.addEventListener('click', function (e) {
-                e.preventDefault()
-                const btnName = suggestionButton.getAttribute('id')
-                const btnType = suggestionButton.getAttribute('data-type')
-                
-                ingredientsField.value = ''
-                addTagToTagList(btnName, btnType)
-                suggestionButton.remove()
-
-                currentlyDisplayedIngredients = allIngredients
-                displayIngredients()
-            })
-
-        }
+            addTagToTagList(btnName, btnType)
+        })
 
     });
 

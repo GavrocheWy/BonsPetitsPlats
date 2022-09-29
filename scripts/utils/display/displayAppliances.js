@@ -11,39 +11,33 @@ function displayAppliances() {
 
     appliancesSection.innerHTML = ''
 
-    // NO RECIPE FILTERED
-
     currentlyDisplayedAppliances.forEach(appliance => {
 
-        // Verify if tag is already checked
+        const suggestionButton = document.createElement('button')
 
-        if (!checkIfTagIsAlreadyChecked(appliance, 'appliance')) {
+        suggestionButton.textContent = appliance
+        suggestionButton.setAttribute('id', appliance)
+        suggestionButton.setAttribute('data-type', 'appliance')
+        suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
 
-            const suggestionButton = document.createElement('button')
+        appliancesSection.appendChild(suggestionButton)
 
-            suggestionButton.textContent = appliance
-            suggestionButton.setAttribute('id', appliance)
-            suggestionButton.setAttribute('data-type', 'appliance')
-            suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
+        // Tag Button configurations
 
-            appliancesSection.appendChild(suggestionButton)
+        suggestionButton.addEventListener('click', function (e) {
 
-            // Tag Button configurations
+            e.preventDefault()
 
-            suggestionButton.addEventListener('click', function (e) {
-                e.preventDefault()
-                const btnName = suggestionButton.getAttribute('id')
-                const btnType = suggestionButton.getAttribute('data-type')
-                
-                appliancesField.value = ''
-                addTagToTagList(btnName, btnType)
-                suggestionButton.remove()
+            const btnName = suggestionButton.getAttribute('id')
+            const btnType = suggestionButton.getAttribute('data-type')
 
-                currentlyDisplayedAppliances = allAppliances
-                displayAppliances()
-            })
+            appliancesField.value = ''
 
-        }
+            addTagToTagList(btnName, btnType)
+
+            updateAppliances()
+
+        })
 
     });
 

@@ -2,77 +2,167 @@ function updateTagWhenTyping(event, tag) {
 
     const valueTyped = event.target.value.trim()
 
+    // PLUS DE TROIS CARACTERES DANS LA RECHERCHE
+
     if (valueTyped.length >= 3) {
 
-        switch (tag) {
-            case ('appliance'):
+        // Et des filtres actifs
 
-                currentlyDisplayedAppliances = []
+        if (updatedRecipes.length > 0) {
 
-                currentlyDisplayedAppliances = allAppliances.filter(item => item.includes(valueTyped))
+            switch (tag) {
 
-                displayAppliances()
+                case ('appliance'):
 
-                break;
+                    currentlyDisplayedAppliances = []
 
-            case ('ingredient'):
+                    currentlyDisplayedAppliances = updatedAppliances.filter(item => item.includes(valueTyped))
 
-                currentlyDisplayedIngredients = []
+                    displayAppliances()
 
-                currentlyDisplayedIngredients = allIngredients.filter(item => item.includes(valueTyped))
+                    break;
 
-                displayIngredients()
+                case ('ingredient'):
 
-                break;
+                    currentlyDisplayedIngredients = []
 
-            case ('ustensil'):
+                    currentlyDisplayedIngredients = updatedIngredients.filter(item => item.includes(valueTyped))
 
-                currentlyDisplayedUstensils = []
+                    displayIngredients()
 
-                currentlyDisplayedUstensils = allUstensils.filter(item => item.includes(valueTyped))
+                    break;
 
-                displayUstensils()
+                case ('ustensil'):
 
-                break;
+                    currentlyDisplayedUstensils = []
+
+                    currentlyDisplayedUstensils = updatedUstensils.filter(item => item.includes(valueTyped))
+
+                    displayUstensils()
+
+                    break;
+            }
+
+        // Et aucun filtre actif
+
+        } else {
+
+            switch (tag) {
+
+                case ('appliance'):
+
+                    currentlyDisplayedAppliances = []
+
+                    currentlyDisplayedAppliances = allAppliances.filter(item => item.includes(valueTyped))
+
+                    displayAppliances()
+
+                    break;
+
+                case ('ingredient'):
+
+                    currentlyDisplayedIngredients = []
+
+                    currentlyDisplayedIngredients = allIngredients.filter(item => item.includes(valueTyped))
+
+                    displayIngredients()
+
+                    break;
+
+                case ('ustensil'):
+
+                    currentlyDisplayedUstensils = []
+
+                    currentlyDisplayedUstensils = allUstensils.filter(item => item.includes(valueTyped))
+
+                    displayUstensils()
+
+                    break;
+            }
+
         }
 
-    } else if (valueTyped.length < 3) {
+        // MOINS DE TROIS CARACTERES DANS LA RECHERCHE
 
-        switch (tag) {
+    } else {
 
-            case ('appliance'):
+        // Et des filtres actifs
 
-                currentlyDisplayedAppliances = []
+        if (updatedRecipes.length > 0) {
 
-                currentlyDisplayedAppliances = allAppliances
+            switch (tag) {
 
-                displayAppliances()
+                case ('appliance'):
 
-                console.log(allAppliances)
+                    currentlyDisplayedAppliances = []
 
-                break;
+                    currentlyDisplayedAppliances = updatedAppliances
 
-            case ('ingredient'):
+                    displayAppliances()
 
-                currentlyDisplayedIngredients = []
+                    break;
 
-                currentlyDisplayedIngredients = allIngredients
+                case ('ingredient'):
 
-                displayIngredients()
+                    currentlyDisplayedIngredients = []
 
-                break;
+                    currentlyDisplayedIngredients = updatedIngredients
 
-            case ('ustensil'):
+                    displayIngredients()
 
-                currentlyDisplayedUstensils = []
+                    break;
 
-                currentlyDisplayedUstensils = allUstensils
+                case ('ustensil'):
 
-                displayUstensils()
+                    currentlyDisplayedUstensils = []
 
-                break;
+                    currentlyDisplayedUstensils = updatedUstensils
+
+                    displayUstensils()
+
+                    break;
+            }
+
+            // Et aucun filtre actif
+
+        } else {
+
+            switch (tag) {
+
+                case ('appliance'):
+
+                    currentlyDisplayedAppliances = []
+
+                    currentlyDisplayedAppliances = allAppliances
+
+                    displayAppliances()
+
+                    break;
+
+                case ('ingredient'):
+
+                    currentlyDisplayedIngredients = []
+
+                    currentlyDisplayedIngredients = allIngredients
+
+                    displayIngredients()
+
+                    break;
+
+                case ('ustensil'):
+
+                    currentlyDisplayedUstensils = []
+
+                    currentlyDisplayedUstensils = allUstensils
+
+                    displayUstensils()
+
+                    break;
+            }
+
         }
 
     }
+
 
 }

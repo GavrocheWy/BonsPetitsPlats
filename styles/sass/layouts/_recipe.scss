@@ -1,4 +1,10 @@
 .displayed-recipe {
     background-color: rgb(255, 255, 255);
-    opacity: 0.20;
+    opacity: 1;
+    border: 2px solid red;
+
+    & .displayed-recipe__main p:last-of-type {
+        font-weight: 800;
+        color: blue;
+    }
 }
