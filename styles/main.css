@@ -5,36 +5,249 @@
 }
 
 .displayed-recipe {
-  background-color: rgb(255, 255, 255);
-  opacity: 1;
-  border: 2px solid red;
+  background-color: #E7E7E7;
+  border-radius: 0.5555555556em;
+  overflow: hidden;
 }
-.displayed-recipe .displayed-recipe__main p:last-of-type {
-  font-weight: 800;
-  color: blue;
+.displayed-recipe__image-frame {
+  height: 11.1111111111em;
+  background-color: #C7BEBE;
+}
+.displayed-recipe__header {
+  padding: 1.1111111111em 1.1111111111em 0px 1.1111111111em;
+}
+
+.displayed-recipe__main {
+  padding: 1.1111111111em;
+}
+.displayed-recipe__main--ingredients {
+  list-style: none;
+}
+.displayed-recipe__main--ingredients-item {
+  font-weight: 600;
+}
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.3333333333em 0.5555555556em 1.6666666667em;
+}
+
+.main-header__image-frame {
+  width: 16.6666666667em;
+}
+.main-header__image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-content__search-current-tags:empty {
+  padding: 0px;
+}
+
+.main-content__search-current-tags {
+  margin-top: 1.1111111111em;
+}
+
+.main-content__search-filters {
+  margin-top: 1.1111111111em;
+  gap: 1.1111111111em;
+  display: flex;
+}
+
+.main-content__filter {
+  border: none;
+  position: relative;
+}
+.main-content__filter:first-child input {
+  background-color: #3282F7;
+}
+.main-content__filter:nth-child(2) input {
+  background-color: #68D9A4;
+}
+.main-content__filter:nth-child(3) input {
+  background-color: #ED6454;
+}
+.main-content__filter input {
+  min-width: 21em;
+  height: 4em;
+  color: white;
+  padding: 1.3888888889em;
+  border: none;
+  border-radius: 0.2777777778em;
+  font-size: 18px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+.main-content__filter input::placeholder {
+  opacity: 0;
+  font-size: 18px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+.main-content__filter label {
+  position: absolute;
+  left: 1.3888888889em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  white-space: nowrap;
+  color: white;
+  opacity: 0;
+  cursor: text;
+}
+.main-content__filter input:placeholder-shown + label {
+  opacity: 1;
+}
+.main-content__filter input:focus + label {
+  opacity: 0;
+}
+.main-content__filter input:focus::placeholder {
+  opacity: 0.5;
+}
+.main-content__filter-btn {
+  position: absolute;
+  right: 0px;
+  padding: 0px 1.3888888889em;
+  top: 0px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transform: rotate(-180deg);
+  transition: all 0.2s ease-in-out;
+}
+.main-content__filter-btn i {
+  color: white;
+  font-size: 1.6666666667em;
+}
+.main-content__filter .main-content__search-filters--suggestions {
+  position: absolute;
+  padding: 1.1111111111em;
+  top: 96%;
+  left: 0px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(9, auto);
+  min-width: 100%;
+  column-gap: 3.3333333333em;
+  border-radius: 0px 0.2777777778em 0.2777777778em 0.2777777778em;
+  z-index: 5;
+}
+.main-content__filter:first-child .main-content__search-filters--suggestions {
+  background-color: #3282F7;
+}
+.main-content__filter:nth-child(2) .main-content__search-filters--suggestions {
+  background-color: #68D9A4;
+}
+.main-content__filter:nth-child(3) .main-content__search-filters--suggestions {
+  background-color: #ED6454;
+}
+
+.main-content__search-filters--suggestions-btn:nth-child(n+27) {
+  display: none;
+}
+
+.main-content__filter.panel-hidden .main-content__search-filters--suggestions {
+  display: none;
+}
+.main-content__filter.panel-hidden .main-content__filter-btn {
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in-out;
+}
+
+.main-content__search-filters--suggestions-no-one-left {
+  color: white;
+  display: block;
+  white-space: nowrap;
+  height: 1.3888888889em;
+  font-size: 16px;
+  border: none;
+  text-align: left;
+  opacity: 0.75;
+  font-style: italic;
+}
+
+.main-content__search-filters--suggestions-btn {
+  color: white;
+  display: block;
+  white-space: nowrap;
+  height: 1.3888888889em;
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+.main-content__search-filters--suggestions-btn:first-letter {
+  text-transform: uppercase;
+}
+.main-content__search-filters--suggestions-btn:not(:last-child) {
+  margin-bottom: 0.5555555556em;
+}
+
+.main-content {
+  padding: 0px 5.5555555556em;
 }
 
 .main-content__display {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin: 4.4444444444em 0px;
   gap: 2.7777777778em;
 }
 
-.main-content__search-filters--suggestions-btn {
-  border: 2px solid rgb(230, 215, 173);
-  color: rgb(53, 44, 21);
-  background-color: rgb(246, 248, 223);
-  margin: 3px;
-  padding: 2px;
-  cursor: pointer;
-  transform: scale(1);
-  opacity: 0.5;
-  transition: all 0.25s ease;
+.main-content__searchbar {
+  border: none;
+  position: relative;
 }
-.main-content__search-filters--suggestions-btn:hover {
-  transform: scale(1.1);
-  opacity: 1;
-  transition: all 0.25s ease;
+.main-content__searchbar label {
+  position: absolute;
+  left: 1.3333333333em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  opacity: 0;
+  cursor: text;
+}
+.main-content__searchbar input {
+  width: 100%;
+  background-color: #E7E7E7;
+  padding: 1.3333333333em;
+  border-radius: 0.2777777778em;
+  border: none;
+  height: 4em;
+  font-size: 18px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+.main-content__searchbar input::placeholder {
+  opacity: 0;
+  font-size: 18px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+.main-content__searchbar-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0px;
+  height: 100%;
+  width: 5.5555555556em;
+  background-color: transparent;
+  border: none;
+  top: 0px;
+}
+.main-content__searchbar-icon i {
+  font-size: 1.9444444444em;
+}
+.main-content__searchbar-icon:hover {
+  background-color: transparent;
+}
+.main-content__searchbar input:placeholder-shown + label {
+  opacity: 0.25;
+  transition: all 0.15s ease;
 }
 
 /*# sourceMappingURL=main.css.map */

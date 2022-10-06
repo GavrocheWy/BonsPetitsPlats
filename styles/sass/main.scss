@@ -8,7 +8,9 @@
 @import "./base/base";
 
 // Layouts
-@import "./layouts/recipe";
+@import "./layouts/recipes";
+@import "./layouts/header";
+@import "./layouts/filters";
 
 // Pages
 @import "./pages/main";

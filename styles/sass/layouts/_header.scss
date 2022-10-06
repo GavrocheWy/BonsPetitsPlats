@@ -1,0 +1,16 @@
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: em-calc(60) em-calc(10) em-calc(30);
+}
+
+.main-header__image-frame {
+    width: em-calc(300);
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

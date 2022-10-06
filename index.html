@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/favicon.png" type="image/png" />
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
     <title>Les bons petits plats</title>
 </head>
 
@@ -14,34 +19,42 @@
 
     <header class="main-header">
         <div class="main-header__image-frame">
-            <img class="main-header__image-frame--img" src="" alt="">
+            <img class="main-header__image-frame--img" src="./assets/logo-petits-plats.png"
+                alt="logo des bons petits plats">
         </div>
     </header>
 
     <main class="main-content">
 
         <form class="main-content__search" action="">
-            <fieldset>
-                <label for="recipe-search">Rechercher une recette</label>
+            <fieldset class="main-content__searchbar">
                 <input id="recipe-search-field" type="search" id="recipe-search" placeholder="Rechercher une recette">
+                <label for="recipe-search-field">Rechercher une recette</label>
+                <div class="main-content__searchbar-icon"><i class="fas fa-search"></i></div>
             </fieldset>
 
             <div class="main-content__search-current-tags"></div>
 
             <div class="main-content__search-filters">
 
-                <fieldset>
-                    <input type="text" id="ingredients-field" name="ingredients" placeholder="Ingrédients">
+                <fieldset class="main-content__filter panel-hidden">
+                    <input type="text" id="ingredients-field" name="ingredients" placeholder="Rechercher un ingrédient">
+                    <label for="ingredients-field">Ingrédients</label>
+                    <button class="main-content__filter-btn"><i class="fas fa-angle-down"></i></button>
                     <div class="main-content__search-filters--suggestions" id="ingredients-suggestions"></div>
                 </fieldset>
 
-                <fieldset>
-                    <input type="text" id="appliances-field" name="appliances" placeholder="Appareils">
+                <fieldset class="main-content__filter panel-hidden">
+                    <input type="text" id="appliances-field" name="appliances" placeholder="Rechercher un appareil">
+                    <label for="appliances-field">Appareils</label>
+                    <button class="main-content__filter-btn"><i class="fas fa-angle-down"></i></button>
                     <div class="main-content__search-filters--suggestions" id="appliances-suggestions"></div>
                 </fieldset>
 
-                <fieldset>
-                    <input type="text" id="ustensils-field" name="ustensils" placeholder="Ustensiles">
+                <fieldset class="main-content__filter panel-hidden">
+                    <input type="text" id="ustensils-field" name="ustensils" placeholder="Rechercher un ustensil">
+                    <label for="ustensils-field">Ustensils</label>
+                    <button class="main-content__filter-btn"><i class="fas fa-angle-down"></i></button> 
                     <div class="main-content__search-filters--suggestions" id="ustensils-suggestions"></div>
                 </fieldset>
             </div>
@@ -69,11 +82,12 @@
     <!-- → Events -->
 
     <script src="./scripts/events/updateTagWhenTyping.js" defer></script>
+    <script src="./scripts/events/hideOrDisplayTagsPannel.js"></script>
 
     <!-- → Utils -->
 
     <!-- Get all tags and recipes -->
-    
+
     <script src="./scripts/utils/static/getAllRecipes.js" defer></script>
     <script src="./scripts/utils/static/getAllUniquesAppliances.js" defer></script>
     <script src="./scripts/utils/static/getAllUniquesUstensils.js" defer></script>
@@ -100,6 +114,10 @@
 
     <!-- → Render -->
     <script src="./scripts/app.js" defer></script>
+
+    <!-- Vendors -->
+
+    <script src="https://kit.fontawesome.com/91689b993c.js" crossorigin="anonymous"></script>
 
     <!-- // SCRIPTS -->
 

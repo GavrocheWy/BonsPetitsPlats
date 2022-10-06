@@ -6,7 +6,6 @@ function recipeFactory(recipe) {
 
         const article = document.createElement('article')
         const imageFrame = document.createElement('div')
-        const img = document.createElement('img')
         const articleHeader = document.createElement('header')
         const articleTitle = document.createElement('h2')
         const durationBox = document.createElement('div')
@@ -15,14 +14,12 @@ function recipeFactory(recipe) {
         const articleContent = document.createElement('section')
         const ingredientsList = document.createElement('ul')
         const description = document.createElement('p')
-        const utils = document.createElement('p')
 
         // Text content
 
         articleTitle.textContent = recipe.name
         durationText.textContent = recipe.time + ' ' + 'min'
         description.textContent = recipe.description
-        utils.textContent = `${appliance} | ${ustensils}`
 
         // Ingrédients
 
@@ -80,7 +77,6 @@ function recipeFactory(recipe) {
 
         article.classList.add('displayed-recipe')
         imageFrame.classList.add('displayed-recipe__image-frame')
-        img.classList.add('displayed-recipe__image-frame--img')
         articleHeader.classList.add('displayed-recipe__header')
         articleTitle.classList.add('displayed-recipe__header--title')
         durationBox.classList.add('displayed-recipe__header--duration')
@@ -96,8 +92,6 @@ function recipeFactory(recipe) {
         article.appendChild(articleHeader)
         article.appendChild(articleContent)
 
-        imageFrame.appendChild(img)
-
         articleHeader.appendChild(articleTitle)
         articleHeader.appendChild(durationBox)
 
@@ -106,7 +100,6 @@ function recipeFactory(recipe) {
 
         articleContent.appendChild(ingredientsList)
         articleContent.appendChild(description)
-        articleContent.appendChild(utils)
 
         // Render
 

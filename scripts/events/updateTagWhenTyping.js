@@ -1,6 +1,6 @@
 function updateTagWhenTyping(event, tag) {
 
-    const valueTyped = event.target.value.trim()
+    const valueTyped = event.target.value.trim().toLowerCase()
 
     // PLUS DE TROIS CARACTERES DANS LA RECHERCHE
 

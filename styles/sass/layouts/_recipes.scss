@@ -1,0 +1,28 @@
+.displayed-recipe {
+    background-color: $light-grey;
+    border-radius: em-calc(10);
+    overflow: hidden;
+
+    &__image-frame {
+        height: em-calc(200);
+        background-color: $grey;
+    }
+
+    &__header {
+        padding: em-calc(20) em-calc(20) 0px em-calc(20);
+    }
+}
+
+
+.displayed-recipe__main {
+    
+    padding: em-calc(20);
+
+    &--ingredients {
+        list-style: none;
+
+        &-item {
+            font-weight: 600;
+        }
+    }
+}

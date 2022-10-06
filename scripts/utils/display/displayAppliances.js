@@ -11,34 +11,47 @@ function displayAppliances() {
 
     appliancesSection.innerHTML = ''
 
-    currentlyDisplayedAppliances.forEach(appliance => {
+    if (currentlyDisplayedAppliances.length === 0) {
 
-        const suggestionButton = document.createElement('button')
+        const noOneItemLeft = document.createElement('p')
+        noOneItemLeft.textContent = `Aucun appareil restant`
+        noOneItemLeft.classList.add('main-content__search-filters--suggestions-no-one-left')
+        appliancesSection.appendChild(noOneItemLeft)
 
-        suggestionButton.textContent = appliance
-        suggestionButton.setAttribute('id', appliance)
-        suggestionButton.setAttribute('data-type', 'appliance')
-        suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
+    } else {
 
-        appliancesSection.appendChild(suggestionButton)
+        currentlyDisplayedAppliances.forEach(appliance => {
 
-        // Tag Button configurations
+            const suggestionButton = document.createElement('button')
 
-        suggestionButton.addEventListener('click', function (e) {
+            suggestionButton.textContent = appliance
+            suggestionButton.setAttribute('id', appliance)
+            suggestionButton.setAttribute('data-type', 'appliance')
+            suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
 
-            e.preventDefault()
+            appliancesSection.appendChild(suggestionButton)
 
-            const btnName = suggestionButton.getAttribute('id')
-            const btnType = suggestionButton.getAttribute('data-type')
+            // Tag Button configurations
 
-            appliancesField.value = ''
+            suggestionButton.addEventListener('click', function (e) {
 
-            addTagToTagList(btnName, btnType)
+                e.preventDefault()
 
-            updateAppliances()
+                const btnName = suggestionButton.getAttribute('id')
+                const btnType = suggestionButton.getAttribute('data-type')
 
-        })
+                appliancesField.value = ''
 
-    });
+                addTagToTagList(btnName, btnType)
+
+                updateAppliances()
+
+            })
+
+        });
+
+    }
+
+
 
 }

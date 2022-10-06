@@ -11,31 +11,44 @@ function displayUstensils() {
 
     ustensilsSection.innerHTML = ''
 
-    currentlyDisplayedUstensils.forEach(ustensil => {
+    if (currentlyDisplayedUstensils.length === 0) {
 
-        const suggestionButton = document.createElement('button')
+        const noOneItemLeft = document.createElement('p')
+        noOneItemLeft.textContent = `Aucun ustensile restant`
+        noOneItemLeft.classList.add('main-content__search-filters--suggestions-no-one-left')
+        ustensilsSection.appendChild(noOneItemLeft)
 
-        suggestionButton.textContent = ustensil
-        suggestionButton.setAttribute('id', ustensil)
-        suggestionButton.setAttribute('data-type', 'ustensils')
-        suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
+    } else {
 
-        ustensilsSection.appendChild(suggestionButton)
+        currentlyDisplayedUstensils.forEach(ustensil => {
 
-        // Tag Button configurations
+            const suggestionButton = document.createElement('button')
 
-        suggestionButton.addEventListener('click', function (e) {
+            suggestionButton.textContent = ustensil
+            suggestionButton.setAttribute('id', ustensil)
+            suggestionButton.setAttribute('data-type', 'ustensils')
+            suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
 
-            e.preventDefault()
+            ustensilsSection.appendChild(suggestionButton)
 
-            const btnName = suggestionButton.getAttribute('id')
-            const btnType = suggestionButton.getAttribute('data-type')
+            // Tag Button configurations
 
-            ustensilsField.value = ''
+            suggestionButton.addEventListener('click', function (e) {
 
-            addTagToTagList(btnName, btnType)
-        })
+                e.preventDefault()
 
-    });
+                const btnName = suggestionButton.getAttribute('id')
+                const btnType = suggestionButton.getAttribute('data-type')
+
+                ustensilsField.value = ''
+
+                addTagToTagList(btnName, btnType)
+            })
+
+        });
+
+    }
+
+
 
 }

@@ -11,31 +11,42 @@ function displayIngredients() {
 
     ingredientsSection.innerHTML = ''
 
-    currentlyDisplayedIngredients.forEach(ingredient => {
+    if (currentlyDisplayedIngredients.length === 0) {
 
-        const suggestionButton = document.createElement('button')
+        const noOneItemLeft = document.createElement('p')
+        noOneItemLeft.textContent = `Aucun ingrédient restant`
+        noOneItemLeft.classList.add('main-content__search-filters--suggestions-no-one-left')
+        ingredientsSection.appendChild(noOneItemLeft)
 
-        suggestionButton.textContent = ingredient
-        suggestionButton.setAttribute('id', ingredient)
-        suggestionButton.setAttribute('data-type', 'ingredients')
-        suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
+    } else {
 
-        ingredientsSection.appendChild(suggestionButton)
+        currentlyDisplayedIngredients.forEach(ingredient => {
 
-        // Tag Button configurations
+            const suggestionButton = document.createElement('button')
+    
+            suggestionButton.textContent = ingredient
+            suggestionButton.setAttribute('id', ingredient)
+            suggestionButton.setAttribute('data-type', 'ingredients')
+            suggestionButton.classList.add('main-content__search-filters--suggestions-btn')
+    
+            ingredientsSection.appendChild(suggestionButton)
+    
+            // Tag Button configurations
+    
+            suggestionButton.addEventListener('click', function (e) {
+    
+                e.preventDefault()
+                
+                const btnName = suggestionButton.getAttribute('id')
+                const btnType = suggestionButton.getAttribute('data-type')
+    
+                ingredientsField.value = ''
+    
+                addTagToTagList(btnName, btnType)
+            })
+    
+        });
+    }
 
-        suggestionButton.addEventListener('click', function (e) {
-
-            e.preventDefault()
-            
-            const btnName = suggestionButton.getAttribute('id')
-            const btnType = suggestionButton.getAttribute('data-type')
-
-            ingredientsField.value = ''
-
-            addTagToTagList(btnName, btnType)
-        })
-
-    });
 
 }
