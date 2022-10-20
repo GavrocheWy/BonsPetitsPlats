@@ -142,29 +142,29 @@ const displayRecipes = () => {
 
     else if ((Object.values(displayedTagsParams).every((array) => array.length === 0)) && (currentSearch !== null)) {
 
-        console.log('Recherche par search uniquement')
-
         updatedRecipes = []
 
-        allRecipes.forEach(recipe => {
-
-            // Récupération des noms des ingrédients de la recette
+        for (let i = 0; i < allRecipes.length; i++) {
 
             let allIngredientsNamesOfThisRecipe = []
 
-            recipe.ingredients.forEach(ingredient => {
+            let allIngredientsOfThisRecipe = allRecipes[i].ingredients
 
-                allIngredientsNamesOfThisRecipe.push(ingredient.ingredient.toLowerCase())
+            for (let j = 0; j < allIngredientsOfThisRecipe.length; j++) {
 
-            });
+                allIngredientsNamesOfThisRecipe.push(allIngredientsOfThisRecipe[j].ingredient.toLowerCase())
 
-            // Check de la recherche
+            }
 
             function checkForSearchQuery() {
 
                 if (currentSearch !== null) {
 
-                    if (recipe.name.toLowerCase().includes(currentSearch) || recipe.description.includes(currentSearch) || allIngredientsNamesOfThisRecipe.includes(currentSearch)) {
+                    const formatedRecipeName = allRecipes[i].name.toLowerCase()
+
+                    const formatedRecipeDescription = allRecipes[i].description.toLowerCase()
+
+                    if (formatedRecipeName.includes(currentSearch) || formatedRecipeDescription.includes(currentSearch) || allIngredientsNamesOfThisRecipe.includes(currentSearch)) {
 
                         return true
 
@@ -178,9 +178,9 @@ const displayRecipes = () => {
 
             }
 
-            checkForSearchQuery() ? updatedRecipes.push(recipe) : null;
+            checkForSearchQuery() ? updatedRecipes.push(allRecipes[i]) : null;
 
-        });
+        }
 
         currentlyDisplayedRecipes = updatedRecipes
 
