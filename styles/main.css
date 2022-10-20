@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
 .displayed-recipe {
   background-color: #E7E7E7;
   border-radius: 0.5555555556em;

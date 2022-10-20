@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/favicon.png" type="image/png" />
+    <link rel="icon" href="./assets/favicon.png" type="image/png">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +26,9 @@
 
     <main class="main-content">
 
-        <form class="main-content__search" action="">
+        <form class="main-content__search">
             <fieldset class="main-content__searchbar">
-                <input id="recipe-search-field" type="search" id="recipe-search" placeholder="Rechercher une recette">
+                <input id="recipe-search-field" type="search" placeholder="Rechercher une recette">
                 <label for="recipe-search-field">Rechercher une recette</label>
                 <div class="main-content__searchbar-icon"><i class="fas fa-search"></i></div>
             </fieldset>
@@ -60,7 +60,7 @@
             </div>
         </form>
 
-        <section class="main-content__display"></section>
+        <div class="main-content__display"></div>
 
     </main>
 
@@ -82,7 +82,7 @@
     <!-- → Events -->
 
     <script src="./scripts/events/updateTagWhenTyping.js" defer></script>
-    <script src="./scripts/events/hideOrDisplayTagsPannel.js"></script>
+    <script src="./scripts/events/hideOrDisplayTagsPannel.js" defer></script>
 
     <!-- → Utils -->
 
@@ -95,9 +95,9 @@
 
     <!-- Update tags and recipes -->
 
-    <script src="./scripts/utils/update/updateAppliances.js"></script>
-    <script src="./scripts/utils/update/updateIngredients.js"></script>
-    <script src="./scripts/utils/update/updateUstensils.js"></script>
+    <script src="./scripts/utils/update/updateAppliances.js" defer></script>
+    <script src="./scripts/utils/update/updateIngredients.js" defer></script>
+    <script src="./scripts/utils/update/updateUstensils.js" defer></script>
 
     <!-- Display tags and recipes -->
 
@@ -110,7 +110,7 @@
 
     <!-- Searchbar -->
 
-    <script src="./scripts//utils/searchbar/getRecipesWhenUserSearchSomething.js"></script>
+    <script src="./scripts//utils/searchbar/getRecipesWhenUserSearchSomething.js" defer></script>
 
     <!-- → Render -->
     <script src="./scripts/app.js" defer></script>

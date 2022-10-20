@@ -8,5 +8,8 @@
     "sass": "sass --watch ./styles/sass/main.scss:./styles/main.css"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.25.0"
+  }
 }
