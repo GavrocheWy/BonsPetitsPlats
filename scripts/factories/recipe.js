@@ -11,6 +11,7 @@ function recipeFactory(recipe) {
         const durationBox = document.createElement('div')
         const durationIconFrame = document.createElement('div')
         const durationText = document.createElement('p')
+        const durationIcon = document.createElement('i')
         const articleContent = document.createElement('section')
         const ingredientsList = document.createElement('ul')
         const description = document.createElement('p')
@@ -19,7 +20,13 @@ function recipeFactory(recipe) {
 
         articleTitle.textContent = recipe.name
         durationText.textContent = recipe.time + ' ' + 'min'
-        description.textContent = recipe.description
+
+        if (recipe.description.split(' ').length > 30) {
+            description.textContent = recipe.description.split(' ').slice(0, 30).join(' ') + '...'
+        } else {
+            description.textContent = recipe.description
+        }
+        
 
         // Ingrédients
 
@@ -85,6 +92,7 @@ function recipeFactory(recipe) {
         articleContent.classList.add('displayed-recipe__main')
         ingredientsList.classList.add('displayed-recipe__main--ingredients')
         description.classList.add('displayed-recipe__main--description')
+        durationIcon.classList.add('far', 'fa-clock')
 
         // Build
 
@@ -96,6 +104,7 @@ function recipeFactory(recipe) {
         articleHeader.appendChild(durationBox)
 
         durationBox.appendChild(durationIconFrame)
+        durationIconFrame.appendChild(durationIcon)
         durationBox.appendChild(durationText)
 
         articleContent.appendChild(ingredientsList)

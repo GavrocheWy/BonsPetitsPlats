@@ -17,14 +17,49 @@
   padding: 1.1111111111em 1.1111111111em 0px 1.1111111111em;
 }
 
+.displayed-recipe__main--ingredients-item {
+  white-space: nowrap;
+}
+
+.displayed-recipe__main--ingredients-item-qtt {
+  font-weight: 400;
+}
+
 .displayed-recipe__main {
-  padding: 1.1111111111em;
+  padding: 1.3333333333em 1.1111111111em 2.7777777778em;
+  display: flex;
+  gap: 1.6666666667em;
 }
 .displayed-recipe__main--ingredients {
   list-style: none;
+  width: 50%;
 }
 .displayed-recipe__main--ingredients-item {
   font-weight: 600;
+}
+.displayed-recipe__main--description {
+  width: 50%;
+}
+
+.displayed-recipe__header {
+  display: flex;
+  align-items: center;
+}
+
+.displayed-recipe__header--duration {
+  display: flex;
+  align-items: center;
+  gap: 0.3888888889em;
+  margin-left: auto;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.displayed-recipe__header--duration-text {
+  white-space: nowrap;
+}
+
+.displayed-recipe__header--title {
+  font-weight: 500;
 }
 
 .main-header {
@@ -47,8 +82,39 @@
   padding: 0px;
 }
 
+.main-content__search-current-tags--tag {
+  font-size: 16px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  padding: 0.5555555556em;
+  display: flex;
+  align-items: center;
+  color: white;
+  border: none;
+  border-radius: 0.2777777778em;
+  gap: 0.2777777778em;
+  cursor: pointer;
+}
+.main-content__search-current-tags--tag.tag-ingredients {
+  background-color: #3282F7;
+}
+.main-content__search-current-tags--tag.tag-appliance {
+  background-color: #68D9A4;
+}
+.main-content__search-current-tags--tag.tag-ustensils {
+  background-color: #ED6454;
+}
+.main-content__search-current-tags--tag i {
+  font-size: 1.2em;
+}
+.main-content__search-current-tags--tag span::first-letter {
+  text-transform: capitalize;
+}
+
 .main-content__search-current-tags {
   margin-top: 1.1111111111em;
+  display: flex;
+  gap: 0.5555555556em;
+  flex-wrap: wrap;
 }
 
 .main-content__search-filters {

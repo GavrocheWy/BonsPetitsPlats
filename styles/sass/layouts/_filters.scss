@@ -2,8 +2,44 @@
     padding: 0px;
 }
 
+.main-content__search-current-tags--tag {
+    font-size: $small-text-size;
+    font-family: $text-font;
+    padding: em-calc(10);
+    display: flex;
+    align-items: center;
+    color: $white;
+    border: none;
+    border-radius: em-calc(5);
+    gap: em-calc(5);
+    cursor: pointer;
+
+    &.tag-ingredients {
+        background-color: $filter-color-1;
+    }
+    
+    &.tag-appliance {
+        background-color: $filter-color-2;
+    }
+
+    &.tag-ustensils {
+        background-color: $filter-color-3;
+    }
+
+    & i {
+        font-size: 1.2em;
+    }
+
+    & span::first-letter {
+        text-transform: capitalize;
+    }
+}
+
 .main-content__search-current-tags {
     margin-top: em-calc(20);
+    display: flex;
+    gap: em-calc(10);
+    flex-wrap: wrap;
 }
 
 .main-content__search-filters {
@@ -59,11 +95,11 @@
         cursor: text;
     }
 
-    & input:placeholder-shown + label {
+    & input:placeholder-shown+label {
         opacity: 1;
     }
 
-    & input:focus + label {
+    & input:focus+label {
         opacity: 0;
     }
 
@@ -126,6 +162,7 @@
     & .main-content__search-filters--suggestions {
         display: none;
     }
+
     & .main-content__filter-btn {
         transform: rotate(0deg);
         transition: all 0.2s ease-in-out;

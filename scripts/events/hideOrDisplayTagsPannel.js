@@ -19,15 +19,11 @@ tagsPanels.forEach(panel => {
 
     })
 
-    field.addEventListener('focus', function() {
+    field.addEventListener('focus', function () {
 
-        if (panel.classList.contains('panel-active')) {
-            removeAllActivePannels()
-        } else {
-            removeAllActivePannels()
-            panel.classList.remove('panel-hidden')
-            panel.classList.add('panel-active')
-        }
+        removeAllActivePannels()
+        panel.classList.remove('panel-hidden')
+        panel.classList.add('panel-active')
 
     })
 
@@ -36,16 +32,16 @@ tagsPanels.forEach(panel => {
 
         if (clickedElement !== panel
             && clickedElement !== btn
-            && clickedElement !== btn.querySelector('i') 
+            && clickedElement !== btn.querySelector('i')
             && clickedElement !== field
             && clickedElement !== tagPanel
             && !clickedElement.classList.contains('main-content__search-filters--suggestions-btn')) {
 
-                if (panel.classList.contains('panel-active')) {
-                    removeAllActivePannels()
-                }
-
+            if (panel.classList.contains('panel-active')) {
+                removeAllActivePannels()
             }
+
+        }
     });
 
 });

@@ -48,9 +48,15 @@ const displayRecipes = () => {
 
             function checkForUstensil() {
 
+                let recipeUstensilToLowerCase = recipe.ustensils.map(elt => {
+                    return elt.toLowerCase()
+                })
+
                 if (displayedTagsParams.ustensils.length > 0) {
 
-                    if (displayedTagsParams.ustensils.every(ustensil => recipe.ustensils.includes(ustensil))) {
+                    if (displayedTagsParams.ustensils.every(ustensil => recipeUstensilToLowerCase.includes(ustensil))) {
+
+                        console.log("OK")
 
                         return true
 
@@ -74,7 +80,7 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.appliance.length > 0) {
 
-                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase().includes(appliance))) {
+                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase() === appliance)) {
 
                         return true
 
@@ -210,7 +216,13 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.ustensils.length > 0) {
 
-                    if (displayedTagsParams.ustensils.every(ustensil => recipe.ustensils.includes(ustensil))) {
+                    let recipeUstensilToLowerCase = recipe.ustensils.map(elt => {
+                        return elt.toLowerCase()
+                    })
+
+                    if (displayedTagsParams.ustensils.every(ustensil => recipeUstensilToLowerCase.includes(ustensil))) {
+
+                        console.log("OK")
 
                         return true
 
@@ -234,7 +246,7 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.appliance.length > 0) {
 
-                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase().includes(appliance))) {
+                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase() === appliance)) {
 
                         return true
 

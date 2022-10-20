@@ -13,16 +13,54 @@
     }
 }
 
+.displayed-recipe__main--ingredients-item {
+    white-space: nowrap;
+}
+
+.displayed-recipe__main--ingredients-item-qtt {
+    font-weight: 400;
+}
+
 
 .displayed-recipe__main {
     
-    padding: em-calc(20);
+    padding: em-calc(24) em-calc(20) em-calc(50);
+    display: flex;
+    gap: em-calc(30);
 
     &--ingredients {
         list-style: none;
+        width: 50%;
 
         &-item {
             font-weight: 600;
         }
     }
+
+    &--description {
+        width: 50%;
+    }
+
+}
+
+.displayed-recipe__header {
+    display: flex;
+    align-items: center;
+}
+
+.displayed-recipe__header--duration {
+    display: flex;
+    align-items: center;
+    gap: em-calc(7);
+    margin-left: auto;
+    font-size: 1.5em;
+    font-weight: 600;
+
+    &-text {
+        white-space: nowrap;
+    }
+}
+
+.displayed-recipe__header--title {
+    font-weight: 500;
 }
