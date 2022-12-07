@@ -54,7 +54,7 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.ustensils.length > 0) {
 
-                    if (displayedTagsParams.ustensils.every(ustensil => recipeUstensilToLowerCase.includes(ustensil))) {
+                    if (displayedTagsParams.ustensils.every(ustensil => recipeUstensilToLowerCase.toString().includes(ustensil))) {
 
                         console.log("OK")
 
@@ -80,7 +80,7 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.appliance.length > 0) {
 
-                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase() === appliance)) {
+                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase().includes(appliance))) {
 
                         return true
 
@@ -104,7 +104,7 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.ingredients.length > 0) {
 
-                    if (displayedTagsParams.ingredients.every(ingredient => allIngredientsNamesOfThisRecipe.includes(ingredient))) {
+                    if (displayedTagsParams.ingredients.every(ingredient => allIngredientsNamesOfThisRecipe.toString().includes(ingredient))) {
 
                         return true
 
@@ -220,7 +220,7 @@ const displayRecipes = () => {
                         return elt.toLowerCase()
                     })
 
-                    if (displayedTagsParams.ustensils.every(ustensil => recipeUstensilToLowerCase.includes(ustensil))) {
+                    if (displayedTagsParams.ustensils.every(ustensil => recipeUstensilToLowerCase.toString().includes(ustensil))) {
 
                         console.log("OK")
 
@@ -246,7 +246,7 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.appliance.length > 0) {
 
-                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase() === appliance)) {
+                    if (displayedTagsParams.appliance.every(appliance => recipe.appliance.toLowerCase().includes(appliance))) {
 
                         return true
 
@@ -270,7 +270,7 @@ const displayRecipes = () => {
 
                 if (displayedTagsParams.ingredients.length > 0) {
 
-                    if (displayedTagsParams.ingredients.every(ingredient => allIngredientsNamesOfThisRecipe.includes(ingredient))) {
+                    if (displayedTagsParams.ingredients.every(ingredient => allIngredientsNamesOfThisRecipe.toString().includes(ingredient))) {
 
                         return true
 
